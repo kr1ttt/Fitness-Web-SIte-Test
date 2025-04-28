@@ -385,12 +385,9 @@ button:hover {
 .banner-info::before {
   content: "";
   margin-right: 30px;
-  width: 10vw;
+  width: 6.5em;
   aspect-ratio: 1;
-  background-image: url("/images/arrow-right-bottom.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background: url("/images/arrow-right-bottom.svg") center/contain no-repeat;
 }
 
 .banner-pagination-list {
@@ -424,6 +421,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .motivation-card .motivation-card-content {
@@ -431,9 +429,21 @@ button:hover {
 }
 
 .motivation-card-title {
+  display: flex;
+  position: relative;
   text-transform: uppercase;
   font-size: 40px;
   margin-bottom: 14px;
+}
+
+.motivation-card-title::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 26px;
+  aspect-ratio: 1;
+  background: url("/images/marker.svg") center/contain no-repeat;
 }
 
 .motivation-card-description {
@@ -451,6 +461,37 @@ button:hover {
   margin-left: 210px;
 }
 
+@media (max-width: 1540px) {
+  .motivation-card-title {
+    font-size: 30px;
+  }
+  .motivation-card .motivation-card-content {
+    margin-right: 120px;
+  }
+  .motivation-card-2 .motivation-card-content {
+    margin-left: 120px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .motivation {
+    margin-inline: 220px;
+  }
+  .motivation-card {
+    flex-direction: column-reverse;
+  }
+  .motivation-card .motivation-card-content {
+    margin-right: 0;
+  }
+  .motivation-card-2 {
+    margin-top: 20px;
+    flex-direction: column-reverse;
+  }
+  .motivation-card-2 .motivation-card-content {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+}
 
 @media (max-width: 930px) {
   .header {
@@ -465,13 +506,28 @@ button:hover {
   .banner-info::before {
     margin-right: 10px;
   }
+  .motivation {
+    margin-inline: 160px;
+  }
+}
+
+@media (max-width: 630px) {
+  .motivation {
+    margin-inline: 100px;
+  }
 }
 
 @media (max-width: 500px) {
   .header-nav-list {
     column-gap: 20px;
   }
+  .header-actions {
+    margin-block: 16px;
+  }
   .banner {
     padding-inline: 10px;
+  }
+  .motivation {
+    margin-inline: 80px;
   }
 }
