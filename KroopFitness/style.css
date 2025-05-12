@@ -248,6 +248,10 @@
     --transition-duration: 0.2s;
  }
 
+ .invisible {
+  display: none;
+ }
+
  body {
   background-color: var(--color-black);
   font-family: var(--font-family-base);
@@ -446,6 +450,18 @@ button:hover {
   background: url("/images/marker.svg") center/contain no-repeat;
 }
 
+.motivation-card-title::after {
+  content: attr(data-title);
+  position: absolute;
+  z-index: -1;
+  top: -40px;
+  left: -60px;
+  font-family: var(--font-family-accent);
+  font-size: 2.8em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-dark-gray)
+}
+
 .motivation-card-description {
   margin-bottom: 37px;
 }
@@ -461,6 +477,87 @@ button:hover {
   margin-left: 210px;
 }
 
+.training-methods {
+  margin-inline: 90px;
+  height: 490px;
+}
+
+.training-methods-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding-top: 150px;
+}
+
+.training-methods-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  row-gap: 30px;
+}
+
+.training-methods-image {
+  width: 150px;
+  height: 150px;
+}
+
+.training-methods-title {
+  font-family: "Heebo";
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 32px;
+  font-size: 16px;
+}
+
+.training-methods-item::after {
+  content: "";
+  width: 80px;
+  aspect-ratio: 1;
+  position: relative;
+  top: -340px;
+  left: 100px;
+  background: url("/images/arrow-left-bottom-transparent.svg") center/contain no-repeat;
+}
+
+.trailer-video {
+  position: relative;
+  text-align: center;
+}
+
+.trailer-video-conteiner {
+  display: flex;
+  margin-top: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.trailer-video-conteiner::before {
+  content: "";
+  width: 99vw;
+  height: 909px;
+  position: absolute;
+  z-index: -1;
+  background: url("/images/video-trailer-bg.jpg") center/contain no-repeat;
+}
+
+.trailer-join-us-button {
+  font-family: "Heebo";
+  font-weight: 700;
+  font-size: 180px;
+  text-transform: uppercase;
+  position: relative;
+  bottom: -20px;
+}
+
+.trailer-join-us-button::after {
+  content: "";
+  width: 126px;
+  aspect-ratio: 1;
+  margin-left: 25px;
+  background: url("/images/arrow-right-bottom.svg") center/contain no-repeat;
+  transform: rotate(-90deg);
+}
+
 @media (max-width: 1540px) {
   .motivation-card-title {
     font-size: 30px;
@@ -470,6 +567,10 @@ button:hover {
   }
   .motivation-card-2 .motivation-card-content {
     margin-left: 120px;
+  }
+  .training-methods-image {
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -482,6 +583,7 @@ button:hover {
   }
   .motivation-card .motivation-card-content {
     margin-right: 0;
+    margin-top: 20px;
   }
   .motivation-card-2 {
     margin-top: 20px;
@@ -491,6 +593,9 @@ button:hover {
     margin-top: 20px;
     margin-left: 0;
   }
+  .training-methods-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 930px) {
@@ -499,6 +604,7 @@ button:hover {
   }
   .header-nav {
     order: 1;
+    margin-top: 20px;
   }
   .banner {
     padding-inline: 30px;
@@ -509,6 +615,9 @@ button:hover {
   .motivation {
     margin-inline: 160px;
   }
+  .training-methods-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 630px) {
@@ -518,6 +627,9 @@ button:hover {
 }
 
 @media (max-width: 500px) {
+  .header-nav {
+    margin-top: 0;
+  }
   .header-nav-list {
     column-gap: 20px;
   }
@@ -529,5 +641,8 @@ button:hover {
   }
   .motivation {
     margin-inline: 80px;
+  }
+  .training-methods-list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
